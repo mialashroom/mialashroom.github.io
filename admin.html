@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel · MIA | LASH ROOM</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500&amp;family=Poppins:wght@300;400;500&amp;display=swap">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<!-- Inicio de sesión -->
+<section class="login" id="login" hidden>
+  <form class="login-card" id="login-form">
+    <img src="favicon.svg" alt="" width="56" height="56">
+    <h1>Panel privado</h1>
+    <p class="muted" id="login-sub">Ingresa para gestionar tu agenda.</p>
+    <div id="login-fields">
+      <div class="field"><label for="l-user">Correo electrónico</label><input id="l-user" type="email" autocomplete="username" required></div>
+      <div class="field"><label for="l-pass">Contraseña</label><input id="l-pass" type="password" autocomplete="current-password" required></div>
+    </div>
+    <div id="setup-fields" hidden>
+      <div class="field"><label for="s-code">Código de activación</label><input id="s-code" autocomplete="off" placeholder="Te lo entregamos junto con la web"></div>
+      <div class="field"><label for="s-pass2">Repite la contraseña</label><input id="s-pass2" type="password" autocomplete="new-password"></div>
+    </div>
+    <div id="reset-fields" hidden>
+      <div class="field"><label for="r-pass">Nueva contraseña (mínimo 8 caracteres)</label><input id="r-pass" type="password" autocomplete="new-password" minlength="8"></div>
+    </div>
+    <p class="form-error" id="login-error" hidden></p>
+    <p class="tiny" id="login-ok" hidden style="color:#3d7a57"></p>
+    <button class="btn btn-block" type="submit" id="login-btn">Ingresar</button>
+    <p class="tiny"><button type="button" class="link" id="forgot">¿Olvidaste tu contraseña?</button></p>
+    <p class="tiny" id="setup-link" hidden><button type="button" class="link" id="to-setup">Primera vez: activar mi cuenta de administradora</button></p>
+    <a class="tiny" href="./">← Volver a la web</a>
+  </form>
+</section>
+
+<!-- Aplicación -->
+<div class="app" id="app" hidden>
+  <aside class="side" id="side">
+    <div class="side-brand"><img src="favicon.svg" alt="" width="34" height="34"><span>MIA | LASH ROOM</span></div>
+    <nav class="side-nav" aria-label="Panel">
+      <a href="#resumen" data-view="resumen"><i>◎</i>Resumen</a>
+      <a href="#reservas" data-view="reservas"><i>▦</i>Reservas</a>
+      <a href="#horarios" data-view="horarios"><i>◷</i>Horarios</a>
+      <a href="#servicios" data-view="servicios"><i>✦</i>Servicios</a>
+      <a href="#galeria" data-view="galeria"><i>▣</i>Galería</a>
+      <a href="#negocio" data-view="negocio"><i>⌂</i>Mi negocio</a>
+      <a href="#whatsapp" data-view="whatsapp"><i>✆</i>WhatsApp</a>
+      <a href="#cuenta" data-view="cuenta"><i>⚙</i>Cuenta</a>
+    </nav>
+    <a class="side-foot" href="./" target="_blank" rel="noopener">Ver mi web ↗</a>
+  </aside>
+  <div class="main">
+    <header class="top">
+      <button class="menu-btn" id="menu-btn" aria-label="Menú">☰</button>
+      <h1 id="view-title">Resumen</h1>
+      <button class="btn btn-sm" id="quick-new">+ Nueva reserva</button>
+    </header>
+    <main class="content" id="view" tabindex="-1"></main>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true">
+  <div class="modal-card"><button class="x" aria-label="Cerrar" data-close>×</button><div id="modal-body"></div></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="config.js"></script>
+<script src="backend.js"></script>
+<script src="admin.js" defer></script>
+</body>
+</html>
